@@ -1,0 +1,85 @@
+
+main{
+    background-image: url("../images/thankBgc.jpg");
+    height: 560px;
+    display: flex;
+    justify-content: center;
+}
+@media(min-width:1024px){
+    main{
+        height: 560px;
+    }
+    .memberShip{
+        width: 450px;
+    }
+    .mTop{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+@media(max-width:1024px){
+    main{
+        height: 660px;
+    } 
+    .memberShip{
+        width: 400px;
+    }
+    .mTop{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+@media(max-width:500px){
+    main{
+        height: 560px;
+    }
+    .memberShip{
+        width: 400px;
+    }
+    .mTop{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 60px;
+    }
+}
+
+
+*{
+    /* border: solid 1px black; */
+}
+.memberShip{
+    /* width: 400px; */
+    /* background-color: #bbb; */
+    margin-top: 100px;
+}
+
+#picture{
+    width:200px;
+    height: 200px;
+    /* background-color: #bbb; */
+}
+.memberData{
+    width:180px;
+    /* background-color: rgb(252, 252, 201); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.m1{
+    letter-spacing: 1px;
+    margin: 10px 0px 10px 0px;
+}
+.logBtn{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+button{
+    width: 100px;
+    height:40px;
+    background-color: rgb(116, 113, 113);
+    color: white;
+}
+
+

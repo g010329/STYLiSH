@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-168371102-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-168371102-1');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <link rel="stylesheet" href="../CSS/base.css">
+    <link rel="stylesheet" href="../CSS/flexbox.css">
+    <link rel="stylesheet" href="../CSS/product.css">
+    
+</head>
+<body>
+<!-- Facebook Login -->
+<script>
+    function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
+        console.log('statusChangeCallback');
+        console.log(response);                   // The current login status of the person.
+        console.log(response.authResponse.accessToken);  
+        if (response.status === 'connected') {
+            FB.api('/me',"GET",{ "fields": 'name,picture,id,email' },function(response) {
+                // console.log(response);   
+            });
+            // Logged into your webpage and Facebook.
+        } else {
+            // The person is not logged into your webpage or we are unable to tell. 
+        }
+    }
+
+    function checkLoginState() {               // Called when a person is finished with the Login Button.
+        FB.getLoginStatus(function(response) {   // See the onlogin handler
+        statusChangeCallback(response);
+        });
+    }
+
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '592261011699303',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v7.0'
+      });
+        
+      FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
+        statusChangeCallback(response);        // Returns the login status.
+        });   
+    };
+  
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    function login() {
+        FB.login(function(response) {
+            statusChangeCallback(response);
+            window.location.href=`../html/profilePage.html`;
+        }, {scope: 'public_profile,email'});
+        //name,picture,id包含在public_profile裡面
+        //scope要和FB.login放在一起，在登入時直接要求給予email權限
+    }
+    function logout() {
+        FB.logout(function(response) {
+        // Person is now logged out
+            
+        });
+    }
+
+    
+</script>
+<!-- Facebook Login Btn -->
+
+    <header>
+        <div class=".btn_logo01" onclick="location.href='./?cate=all'">
+            <a href="./?cate=all">
+                <img src="../images/logo.png" class="btn_logo01">
+            </a>
+        </div>
+        <nav class="webNav">
+            <div class="item" onclick="location.href='./?cate=women'">
+                <p>女裝</p>
+            </div>
+            <div class="item" onclick="location.href='./?cate=men'">
+                <p>男裝</p>
+            </div>
+            <div class="item" onclick="location.href='./?cate=accessories'">
+                <p>配件</p>
+            </div>
+        </nav>
+        <a class="mobileSearch" href='./'><img src="../images/search.png"></a>
+        <div class="feature">
+            <form class="item" action="">
+                <input type="text" class="search"></input>
+            </form>
+            <a href="./cartPage.html" id="cartCount" class="item cart"></a>
+            <div class="item member" onclick="login()">
+                <img src="../images/member.png" >
+            </div>
+        </div>
+    </header>
+    <nav class="mobile">
+        <!-- 相對路徑./回到首頁下(index.html/?cate=women) -->
+        <div class="item" onclick="location.href='./?cate=women'">
+            <p>女裝</p>
+        </div>
+        <div class="item" onclick="location.href='./?cate=men'">
+            <p>男裝</p>
+        </div>
+        <div class="item" onclick="location.href='./?cate=accessories'">
+            <p>配件</p>
+        </div>
+    </nav>
+    
+    <main>
+        <div id="displayBeforeAJAX" ></div>
+        <div id="productView" class="productView">
+            <div class="upper">
+                <div id="main_image" class="left">
+                    <!-- <img src="https://api.appworks-school.tw/assets/201807202140/main.jpg" alt=""> -->
+                </div>
+                <div class="right">
+                    <div  class="top">
+                        <div>
+                            <h3 id="ptTitle"></h3>
+                            <p id ="pId" class="number"></p>
+                        </div>
+                        <p id="ptPrice" class="ptPrice"></p>
+                    </div>
+                    <div class="middle">
+                        <div class="middleLeft">
+                            <p>顏色</p>
+                            <p>尺寸</p>
+                            <p>數量</p>
+                        </div>
+                        <div class="middleRight">
+                            <div id="pColors" class="product_colors">
+                                <!-- <div class="product_color" style="background-color: rgb(141, 116, 70);"></div> -->
+                                <!-- <div class="product_color" style="background-color: rgb(120, 142, 190);"></div> -->
+                            </div>
+                            <div id="pSizes" class="product_sizes">
+                                <!-- <div class="product_size">S</div> -->
+                                <!-- <div class="product_size">M</div> -->
+                            </div>
+                            <div class="product_count">
+                                <div class="op" id="decrement" onclick="decrement()">-</div>
+                                <div class="count" id="count">0</div>
+                                <div class="op" id="increment" onclick="increment()">+</div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <button id="cartBtn" class="cartBtn">加入購物車</button>
+                    <div class="bottom">
+                        <p id="note"></p>
+                        </br>
+                        <p id="texture"></p>
+                        <p id="description"></p>
+                        </br>
+                        <p id="place1"></p>
+                        <p id="place2"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="detail">
+                <div class="detailTop">
+                    <div class="word">細部說明</div><div class="line"></div>
+                </div>
+                
+                <div id="storyAndPic">
+                    <!-- <div>O.N.S is all about options, which is why we took our staple polo shirt and upgraded it with slubby linen jersey, making it even lighter for those who prefer their summer style extra-breezy.  -->
+                    <!-- </div> -->
+                    <!-- <img class="detailPic" src="https://api.appworks-school.tw/assets/201807202140/0.jpg" alt=""> -->
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footerView">
+            <div class="link">
+                <div class="item">關於Stylish</div>
+                <div class="item">服務條款</div>
+                <div class="item">隱私政策</div>
+                <div class="item">聯絡我們</div>
+                <div class="item noborder">FAQ</div>
+            </div>
+            <div class="social">
+                <img src="../images/line.png" alt="Line">
+                <img src="../images/twitter.png" alt="twitter">
+                <img src="../images/facebook.png" alt="Facebook">
+            </div>
+            <div class="copyright">© 2018. All rights reserved.</div>
+        </div>
+        <div class="mobileView">
+            <div class="mobileViewUpper">
+                <div class="link">
+                    <div class="item">關於Stylish</div>
+                    <div class="item">服務條款</div>
+                    <div class="item">隱私政策</div>
+                    <div class="item">聯絡我們</div>
+                    <div class="item">FAQ</div>
+                </div>
+                <div class="social">
+                    <img src="../images/line.png" alt="Line">
+                    <img src="../images/twitter.png" alt="twitter">
+                    <img src="../images/facebook.png" alt="Facebook">
+                </div>
+            </div>    
+            <div class="copyright">© 2018. All rights r</div>
+        </div>
+    </footer>
+    <div class="mobileFixed">
+        <a class="item" href="./cartPage.html">
+            <div id="mobileCartCount" class="fixedCart">0</div>購物車
+        </a>
+        <div class="item fixedMember"  onclick="login()">
+            <img src="../images/member-mobile.png">會員
+        </div>
+    </div>
+    
+    <script src="../JS/productDetail.js"></script>
+</body>
+</html>

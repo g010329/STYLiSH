@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-168371102-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-168371102-1');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage</title>
+    <link rel="stylesheet" href="../CSS/base.css">
+    <link rel="stylesheet" href="../CSS/flexbox.css">
+    <link rel="stylesheet" href="../CSS/member.css">
+
+</head>
+<body>
+
+<header>
+    <div class=".btn_logo01" onclick="sendAll()">
+        <a href="./">
+            <img src="../images/logo.png" class="btn_logo01">
+        </a>
+    </div>
+    <nav class="webNav">
+        <div class="item" onclick="location.href='./?cate=women'">
+            <p>女裝</p>
+        </div>
+        <div class="item" onclick="location.href='./?cate=men'">
+            <p>男裝</p>
+        </div>
+        <div class="item" onclick="location.href='./?cate=accessories'">
+            <p>配件</p>
+        </div>
+    </nav>
+    <!-- <a class="mobileSearch" href='./'><img src="../images/search.png"></a> -->
+    <form class="mobileSearch" onsubmit="sendSearchResult();return false;">
+        <input id="searchPt2" type="text" class="search"></input>
+    </form>
+    <div class="feature" onsubmit="sendSearchResult();return false;">
+        <form class="item">
+            <input id="searchPt" type="text" class="search"></input>
+        </form>
+        <a href="./cartPage.html" id="cartCount" class="item cart">0</a>
+        <div class="item member" onclick="login()">
+            <img src="../images/member.png" alt="">
+        </div>
+    </div>
+</header>
+
+<nav class="mobile">
+    <div class="item" onclick="location.href='./?cate=women'">
+        <p>女裝</p>
+    </div>
+    <div class="item" onclick="location.href='./?cate=men'">
+        <p>男裝</p>
+    </div>
+    <div class="item" onclick="location.href='./?cate=accessories'">
+        <p>配件</p>
+    </div>
+</nav>
+<main>
+    <div class="memberShip">
+        <div class="mTop">
+            <div id="picture">
+                <img src="">
+            </div>
+            <div class="memberData">
+                <div class="m1">Name :</div>
+                <div id="name"></div>
+                <div class="m1">Email :</div>
+                <div id="email"></div>
+            </div>
+        </div>
+        <div class="logBtn"> 
+            <button onclick="logout()">Log Out</button>
+        </div>
+        
+    </div>
+    
+    
+
+</main>
+<footer>
+    <div class="footerView">
+        <div class="link">
+            <div class="item">關於Stylish</div>
+            <div class="item">服務條款</div>
+            <div class="item">隱私政策</div>
+            <div class="item">聯絡我們</div>
+            <div class="item noborder">FAQ</div>
+        </div>
+        <div class="social">
+            <img src="../images/line.png" alt="Line">
+            <img src="../images/twitter.png" alt="twitter">
+            <img src="../images/facebook.png" alt="Facebook">
+        </div>
+        <div class="copyright">© 2018. All rights reserved.</div>
+    </div>
+    <div class="mobileView">
+        <div class="mobileViewUpper">
+            <div class="link">
+                <div class="item">關於Stylish</div>
+                <div class="item">服務條款</div>
+                <div class="item">隱私政策</div>
+                <div class="item">聯絡我們</div>
+                <div class="item">FAQ</div>
+            </div>
+            <div class="social">
+                <img src="../images/line.png" alt="Line">
+                <img src="../images/twitter.png" alt="twitter">
+                <img src="../images/facebook.png" alt="Facebook">
+            </div>
+        </div>    
+        <div class="copyright">© 2018. All rights r</div>
+    </div>
+</footer>
+<div class="mobileFixed">
+    <a class="item" href="./cartPage.html">
+        <div id="mobileCartCount" class="fixedCart">0</div>購物車
+    </a>
+    <div class="item fixedMember" onclick="login()">
+        <img src="../images/member-mobile.png">會員
+    </div>
+</div>
+
+<script src="../JS/profilePage.js"></script>
+</body>
+</html>

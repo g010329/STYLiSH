@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-168371102-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-168371102-1');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="../CSS/base.css">
+    <link rel="stylesheet" href="../CSS/cartPage.css">
+    <link rel="stylesheet" href="../CSS/flexbox.css">
+    
+</head>
+<body>
+
+
+    <header>
+        <div class=".btn_logo01" onclick="location.href='./?cate=all'">
+            <a href="./?cate=all">
+                <img src="../images/logo.png" class="btn_logo01">
+            </a>
+        </div>
+        <nav class="webNav">
+            <div class="item" onclick="location.href='./?cate=women'">
+                <p>女裝</p>
+            </div>
+            <div class="item" onclick="location.href='./?cate=men'">
+                <p>男裝</p>
+            </div>
+            <div class="item" onclick="location.href='./?cate=accessories'">
+                <p>配件</p>
+            </div>
+        </nav>
+        <a class="mobileSearch" href='./'><img src="../images/search.png"></a>
+        <div class="feature">
+            <form class="item" action="">
+                <input type="text" class="search"></input>
+            </form>
+            <a href="" id="cartCount" class="item cart">0</a>
+            <div class="item member" onclick="login()">
+                <img src="../images/member.png">
+            </div>
+        </div>
+    </header>
+    <nav class="mobile">
+        <!-- 相對路徑./回到首頁下(index.html/?cate=women) -->
+        <div class="item" onclick="location.href='./?cate=women'">
+            <p>女裝</p>
+        </div>
+        <div class="item" onclick="location.href='./?cate=men'">
+            <p>男裝</p>
+        </div>
+        <div class="item" onclick="location.href='./?cate=accessories'">
+            <p>配件</p>
+        </div>
+    </nav>
+
+    <main>
+        <div class="cartView">
+            <p>HOME>BAG</p>
+            <div class="listContent webCartTitle">
+                <div id="webCartTitle" class="webCartTitle1">購物車 (0)</div>
+                <div class="webCartTitle2">數量</div>
+                <div class="webCartTitle2">單價</div>
+                <div class="webCartTitle2">小計</div>
+            </div>
+            <div class="listBorder">
+                <div class="nonListItem">購物車裡沒有商品</div>
+                <!-- <div class="listItem">
+                    <div class="listContent">
+                        <div class="col1">
+                            <div class="row">
+                                <img class="listPic" src="../images/main.jpg" alt="">
+                                <div class="orderInfos">
+                                    <div >前開衩扭結洋裝</div>
+                                    <div class="orderInfo">03040047</div>
+                                    <div class="order"><span class="infoTitle">顏色</span><span class="info">白</span></div>
+                                    <div class="order"><span class="infoTitle">尺寸</span><span class="info">Ｍ</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col2">
+                            <div class="mobileHidden">數量</div>
+                            <form class="itemNum" action="">
+                                <select name="cart_count" id="">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </form>
+                        </div>
+                        <div class="col3">
+                            <div class="mobileHidden">單價</div>
+                            <div class="itemPrice">NT 590</div>
+                        </div>
+                        <div class="col4">
+                            <div class="mobileHidden">小計</div>
+                            <div class="itemTotal">NT 590</div>
+                        </div>
+                    </div>
+                    <div class="col5"><img src="../images/cart-remove.png"></div>
+                </div> -->
+            </div>
+            
+            <div class="shipppingPayment">
+                <form class="op" action="">
+                    <div class="opContent">
+                        <span>配送國家</span>
+                        <select name="cart_count" id="">
+                            <option value="1">台灣及離島</option>
+                        </select>
+                    </div>
+                    <div class="opContent">
+                        <span>付款方式</span>
+                        <select name="cart_count" id="">
+                            <option value="1">信用卡付款</option>
+                            <option value="1">宅配貨到付款</option>
+                            
+                        </select>
+                    </div>
+                </form>
+                <div class="reminder">
+                    <div>※ 提醒您：</div>
+                    <div>● 選擇宅配-請填寫正確收件人資訊，避免包裹配送不達</div>
+                    <div>● 選擇超商-請填寫正確收件人姓名(與證件相符)，避免無法領取</div>
+                </div>
+            </div>
+            <div class="recipient">
+                <div class="reTitle">訂購資料</div>
+                <div>
+                    <form class="reForm" action="" method="POST">
+                        <div class="formItem">
+                            <label class="formTitle" for="recipientName">收件人姓名</label>
+                            <input id="name" class="input" type="text" name="recipientName" required="required">
+                        </div>
+                        <p>務必填寫完整收件人姓名，避免包裹無法順利簽收</p>
+                        <div class="formItem">
+                            <label class="formTitle" for="phone">手機</label>
+                            <input id="phone" class="input" type="text" name="phone" required="required">
+                        </div>
+                        <div class="formItem">
+                            <label class="formTitle" for="address">地址</label>
+                            <input id="address" class="input" type="text" name="address" required="required">
+                        </div>
+                        <div class="formItem">
+                            <span class="formTitle">配送時間</span>
+                            <!-- 用onclick回傳該選項value(記得用this) name要一樣才能單選-->
+                            <div class="input">
+                                <div id="time"><input type="radio" value="morning" name="time" onclick="getTime(this.value)"/>08:00~12:00</div>
+                                <div id="time"><input type="radio" value="afternoon" name="time" onclick="getTime(this.value)"/>14:00~18:00</div>
+                                <div id="time"><input type="radio" value="anytime" name="time" checked="checked" onclick="getTime(this.value)"/>不確定</div>
+                            </div>
+                        </div>
+                        <div class="reTitle space">信用卡資料</div>
+                        <div class="formItem card">
+                            <label class="formTitle ">信用卡卡號</label>
+                            <div class="tpfield input" id="card-number"></div>
+                        </div>
+                        <div class="formItem card">
+                            <label class="formTitle ">卡片有效期限</label>
+                            <div class="tpfield input" id="card-expiration-date"></div>
+                        </div>
+                        <div class="formItem card">
+                            <label class="formTitle ">信用卡驗證碼</label>
+                            <div class="tpfield input" id="card-ccv">
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+            <!------------ TapPay ------------>
+            <style>
+                .tpfield {
+                    height: 40px;
+                    width: 300px;
+                    border: 1px solid gray;
+                    margin: 5px 0;
+                    padding: 5px;
+                }
+            </style>
+            
+
+            <!------------End of TapPay ------------>
+
+            <div class="calculation">
+                <div class="calInfo">
+                    <div class="calItem">
+                        <span>總金額</span>
+                        <span>NT.<span id="calItemTotal" class="bigNum">0</span></span>
+                    </div>
+                    <div class="calItem calItem2">
+                        <span>運費</span>
+                        <span>NT.<span id="payment" class="bigNum">30</span></span>
+                    </div>
+                    <div class="calItem">
+                        <span>應付金額</span>
+                        <span>NT.<span id="payTotal" class="bigNum">0</span></span>    
+                    </div>
+                    <input onclick="processFormData(),onSubmit(event)" type="submit" value="確認付款">
+                </div>
+            </div>
+        </div> 
+
+    </main> 
+
+    <footer>
+        <div class="footerView">
+            <div class="link">
+                <div class="item">關於Stylish</div>
+                <div class="item">服務條款</div>
+                <div class="item">隱私政策</div>
+                <div class="item">聯絡我們</div>
+                <div class="item noborder">FAQ</div>
+            </div>
+            <div class="social">
+                <img src="../images/line.png" alt="Line">
+                <img src="../images/twitter.png" alt="twitter">
+                <img src="../images/facebook.png" alt="Facebook">
+            </div>
+            <div class="copyright">© 2018. All rights reserved.</div>
+        </div>
+        <div class="mobileView">
+            <div class="mobileViewUpper">
+                <div class="link">
+                    <div class="item">關於Stylish</div>
+                    <div class="item">服務條款</div>
+                    <div class="item">隱私政策</div>
+                    <div class="item">聯絡我們</div>
+                    <div class="item">FAQ</div>
+                </div>
+                <div class="social">
+                    <img src="../images/line.png" alt="Line">
+                    <img src="../images/twitter.png" alt="twitter">
+                    <img src="../images/facebook.png" alt="Facebook">
+                </div>
+            </div>    
+            <div class="copyright">© 2018. All rights r</div>
+        </div>
+    </footer>
+    <div id="loading"></div>
+    <script src="../JS/cartPage.js"></script>
+    <script src="https://js.tappaysdk.com/tpdirect/v5.1.0"></script>
+    <script src="../JS/tapPay.js"></script>
+</body>
+</html>

@@ -1,0 +1,384 @@
+
+main{
+    display: flex;
+    justify-content: center;
+}
+.cartView{
+    width: 70%;
+}
+
+/* --------- */
+.listItem{
+    display: flex;
+    justify-content: space-between;
+}
+.nonListItem{
+    margin: 40px 0px 40px 0px;
+    color: #bbb;
+}
+.listContent{
+    display: flex;
+    width: 90%;
+}
+
+.title1{
+    width:55%;
+}
+
+.col5{
+    width: 7%;
+    display: flex;
+    align-items: center;
+}
+.col1{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 2px;
+}
+.col2,.col3,.col4{
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.itemNum,.itemPrice,.itemTotal{
+    text-align: center;
+}
+
+.mobileHidden{
+    display: none;
+}
+.webCartTitle1{
+    font-weight: bold;
+    width:57%;
+    
+}
+.webCartTitle2{
+    width: 13.4%;
+    text-align: center;
+}
+
+.row{
+    display: flex;
+}
+/* 手機版圖片跑版解決方式：在img外層設一個div包起來，大小設定在該div上，img width:100% */
+.listPicDiv{
+    width:100px;
+}
+.listPic{
+    width: 100%;
+}
+/* --------- */
+.shippingPayment{
+    background-color: #bbb;
+}
+
+.calculation{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* web adjust(微調padding margin)---------------------------- */
+.cartView>p{
+    padding: 25px 0px;
+}
+.listBorder{
+    border: solid 3px #bbb;
+    padding: 15px 20px 15px 20px;
+}
+.listContent{
+    margin: 12px 0px;
+}
+.orderInfos{
+    padding: 0px 15px;
+}
+.orderInfo{
+    padding:15px 0px;
+}
+.order{
+    margin-bottom: 10px;
+    display: flex;
+    width: 70%;
+    justify-content: space-between;   
+}
+.info{
+    text-align: center;
+}
+.infoTitle{
+    border-right: solid 1px #bbb;
+}
+.orderInfos span{
+    width:50%;   
+}
+.op{
+    margin: 20px 0px;
+    background-color: #bbb;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+.opContent{
+    width: 35%;
+    padding-left: 15px;
+}
+.opContent span{
+    display: inline-block;
+    width: 70px;
+}
+.opContent select{
+    width: 50%;
+}
+
+.reminder{
+    line-height: 2rem;
+}
+/* recipient*/
+.reTitle{
+    border-bottom: solid 1px black;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.recipient{
+    margin: 30px 0px;
+    line-height: 2rem;
+}
+.reForm{
+    width:70%;
+}
+.reForm>p{
+    text-align: end;
+    font-size: 0.8rem;
+    color: rgb(139, 109, 81);
+}
+.formItem{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+}
+.formItem .input{
+    width: 80%;
+    border-radius: 8px;
+    border-width: 1px;
+    border-color: #bbb;
+}
+.input div{
+    display: inline-block;
+    margin-right:15px ;
+}
+
+/* caculation */
+.calInfo{
+    width: 25%;
+}
+.calItem{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0px;
+    text-align: center;
+    line-height: 1.5rem;
+}
+.calItem2{
+    padding-bottom: 15px;
+    border-bottom: solid 1px rgb(22, 22, 22);
+}
+.calInfo input{
+    width: 100%;
+    background-color: black;
+    color: #ffffff;
+    height: 2.5rem;
+    margin-top: 25px;
+}
+.calculation{
+    margin-bottom: 5rem;
+}
+.bigNum{
+    font-size: 1.5rem;
+}
+
+.card{
+    align-items: center;
+}
+.space{
+    margin-top: 25px;
+    border-bottom: solid 1px rgb(180, 179, 179);
+}
+/* end of web adjust------------------------------------- */
+
+
+@media(max-width:1024px){
+    .cartView{
+        width: 90%;
+    }
+    .cartView>p {
+        padding: 10px 0px;
+    }
+}
+
+@media(min-width:500px) and (max-width:700px){
+    .col1{
+        width:60%;
+    }
+    .col2,.col3,.col4{
+        width:13%;
+        align-items: center;
+        text-align: center;
+    }
+    .webCartTitle1{
+        width:60%;
+    }
+    .webCartTitle2{
+        width: 12%;
+    }
+
+    .orderInfos {
+        padding: 0px 0px 0px 10px;
+    }
+    .orderInfos div{
+        margin: 5px;
+    }
+    .orderInfo {
+        padding:0px;
+    }
+    .order {
+        margin-bottom: 3px;
+        width: 100%;
+    }
+    .space{
+        height: 5px;
+        margin-top: 5px;
+    }
+
+    
+}
+
+@media(max-width:500px){
+    .mobileHidden{
+        display: block;
+    }
+    .cartView>p{
+        display: none;
+    }
+    .webCartTitle2 {
+        display: none;
+    }
+    .listContent{
+        display: block;
+        margin: 10px 0px 0px 0px;
+    }
+    .listItem{
+        border-top: solid 1px black;
+    }
+    .listItem:last-child{
+        border-bottom: solid 1px black;
+    }
+    .col1{
+        width:100%;
+    }
+    .col5{
+        display:block;
+    }
+    .col2,.col3,.col4{
+        display: inline-flex;
+        width: 30%;
+        height: 100px;
+        text-align: center;
+    }
+    .col2 select{
+        height: 2rem;
+        width: 60%;
+    }
+    .col2 div,.col3 div,.col4 div{
+       line-height: 2rem; 
+    }
+    .col5 {
+        width: 10%;
+    }
+    .listPicDiv{
+        width:150px;
+    }
+    .listBorder {
+        border: none;
+        padding: 0px;
+    }
+    .orderInfos{
+        padding: 0px 5px 0px 15px;
+    }
+    .order{
+        width: 100%;
+    }
+    .op{
+        height: 150px;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .op select{
+        width: 95%;
+        height: 1.8rem;
+    }
+    .opContent{
+        line-height: 1.5rem;
+        width: 100%;
+        margin: 5px 0px 15px 0px;
+        padding-left: 10px;
+    }
+    .opContent span{
+        display: flex;
+    }
+    .reForm{
+        width: 100%;
+    }
+    .formItem{
+        display: block;
+    }
+    .formItem .input{
+        width: 100%;
+        height: 2rem;
+        border-radius: 8px;
+    }
+    .formItem .input:last-child{
+        width: 100%;
+        height: 2rem;
+        border-radius: 8px;
+    }
+    .reForm>p {
+        text-align: start;
+    }
+    .formItem .input{
+        display: flex;
+        justify-content: space-between;
+    }
+    .calInfo {
+        width: 65%;
+    }
+    .cartView{
+        position: relative;
+    }
+    .calInfo input {
+        position: absolute;
+        left: 0px;
+        width: 100%;
+    }
+}
+
+.tpfield{
+    display: inline-block;
+}
+*{
+    /* border: solid 1px black; */
+}
+.loading{
+    background-position: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: black;
+    opacity: 0.6;
+    background-image: url("../images/loading.gif");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}

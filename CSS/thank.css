@@ -1,0 +1,121 @@
+*{
+    /* border: solid 1px black; */
+}
+
+main{
+    background-image: url("../images/thankBgc.jpg");
+    height: 560px;
+}
+@media(min-width:1024px){
+    main{
+        height: 560px;
+    }
+}
+@media(max-width:1024px){
+    main{
+        height: 660px;
+    } 
+}
+@media(max-width:500px){
+    main{
+        height: 560px;
+    }
+}
+
+.icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    padding-top: 100px;
+    flex-direction: column;
+    /* border: solid 1px black; */
+}
+
+h2{
+    /* font-family: Times New Roman; */
+    font-size: 20px;
+    margin-top: 20px;
+    color: rgb(143, 143, 143);
+    opacity: 0;
+    font-weight: 400;
+    letter-spacing: 1px;
+    /* font-weight: 800; */
+}
+    /* input[type="checkbox"]:checked ~  */
+h2 {
+    animation: .6s title ease-in-out;
+    animation-delay: 1.2s;
+    /*播放動畫後停留在最後一格*/
+    animation-fill-mode: forwards;
+}
+.thxA{
+    
+    line-height: 35px;
+    opacity: 0;
+    animation: .6s title ease-in-out;
+    animation-delay: 1.2s;
+    /*播放動畫後停留在最後一格*/
+    animation-fill-mode: forwards;
+    color: rgb(143, 143, 143);
+    letter-spacing: 1px;
+}
+.thxB{
+    margin-top: 20px;
+    opacity: 0;
+    animation: .6s title ease-in-out;
+    animation-delay: 1.2s;
+    /*播放動畫後停留在最後一格*/
+    animation-fill-mode: forwards;
+    color: rgb(110, 110, 110);
+    letter-spacing: 1px;
+}
+
+.circle{
+    stroke-dasharray: 119.4;
+    stroke-dashoffset: 119.4;
+    /*畫出圈圈 dashoffset:1194->0*/
+}
+    /* input[type="checkbox"]:checked + svg  */
+.circle{
+    animation: circle 1s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.tick{
+    stroke-dasharray: 35;
+    stroke-dashoffset: 35;
+    /*畫出勾勾 dashoffset:350->0 */
+}
+    /* input[type="checkbox"]:checked +  */
+svg .tick{
+    animation: tick .8s ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: .95s;
+}
+@keyframes circle{
+    from{
+        stroke-dashoffset: 119.4;
+    }
+    to{
+        stroke-dashoffset: 238.8;
+    }
+}
+
+@keyframes tick{
+    from{
+        stroke-dashoffset: 35;
+    }
+    to{
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes title {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-168371102-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-168371102-1');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <link rel="stylesheet" href="../CSS/base.css">
+    <link rel="stylesheet" href="../CSS/flexbox.css">
+    <link rel="stylesheet" href="../CSS/thank.css">
+    
+</head>
+<body>
+<!-- Facebook Login -->
+<script>
+    function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
+        console.log('statusChangeCallback');
+        console.log(response);                   // The current login status of the person.
+        console.log(response.authResponse.accessToken);  
+        if (response.status === 'connected') {
+            FB.api('/me',"GET",{ "fields": 'name,picture,id,email' },function(response) {
+                // console.log(response);   
+            });
+            // Logged into your webpage and Facebook.
+        } else {
+            // The person is not logged into your webpage or we are unable to tell. 
+        }
+    }
+
+    function checkLoginState() {               // Called when a person is finished with the Login Button.
+        FB.getLoginStatus(function(response) {   // See the onlogin handler
+        statusChangeCallback(response);
+        });
+    }
+
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '592261011699303',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v7.0'
+      });
+        
+      FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
+        statusChangeCallback(response);        // Returns the login status.
+        });   
+    };
+  
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    function login() {
+        FB.login(function(response) {
+            statusChangeCallback(response);
+            window.location.href=`../html/profilePage.html`;
+        }, {scope: 'public_profile,email'});
+        //name,picture,id包含在public_profile裡面
+        //scope要和FB.login放在一起，在登入時直接要求給予email權限
+    }
+    function logout() {
+        FB.logout(function(response) {
+        // Person is now logged out
+            
+        });
+    }
+
+    
+</script>
+<!-- Facebook Login Btn -->
+
+    <header>
+        <div class=".btn_logo01" onclick="location.href='./?cate=all'">
+            <a href="./?cate=all">
+                <img src="../images/logo.png" class="btn_logo01">
+            </a>
+        </div>
+        <nav class="webNav">
+            <div class="item" onclick="location.href='./?cate=women'">
+                <p>女裝</p>
+            </div>
+            <div class="item" onclick="location.href='./?cate=men'">
+                <p>男裝</p>
+            </div>
+            <div class="item" onclick="location.href='./?cate=accessories'">
+                <p>配件</p>
+            </div>
+        </nav>
+        <a class="mobileSearch" href='./'><img src="../images/search.png"></a>
+        <div class="feature">
+            <form class="item" action="">
+                <input type="text" class="search"></input>
+            </form>
+            <a href="./cartPage.html" class="item cart">0</a>
+            <div class="item member"  onclick="login()">
+                <img src="../images/member.png" alt="">
+            </div>
+        </div>
+    </header>
+    <nav class="mobile">
+        <!-- 相對路徑./回到首頁下(index.html/?cate=women) -->
+        <div class="item" onclick="location.href='./?cate=women'">
+            <p>女裝</p>
+        </div>
+        <div class="item" onclick="location.href='./?cate=men'">
+            <p>男裝</p>
+        </div>
+        <div class="item" onclick="location.href='./?cate=accessories'">
+            <p>配件</p>
+        </div>
+    </nav>
+    <main>
+        <!-- <div class="thxView"> -->
+
+            <div class="icon">
+                <svg width="40" height="40">
+                    <circle fill="none" stroke="#313538" stroke-width="2.5" cx="20" cy="20" r="19" stroke-linecap="round" transform="rotate(-9 20 20)"  class="circle"/>
+                    <polyline fill="none" stroke="#4c4f52" stroke-width="3" points="8.8,21.4 17.3,28.4 30.4,13.8" stroke-linecap="round" stroke-linejoin="round" class="tick">    
+                </svg>
+                <h2>Payment Success !</h2>
+                <div class="thxA">Thank you :)</div>
+                <div id="number" class="thxB"></div>
+            </div>
+            
+        <!-- </div> -->
+        
+    </main>
+    <script>
+        let number = location.search.substring(8,location.search.length);
+        document.getElementById("number").innerHTML = `this is your order number : ${number}`;
+
+    </script>
+    
+
+    <footer>
+        <div class="footerView">
+            <div class="link">
+                <div class="item">關於Stylish</div>
+                <div class="item">服務條款</div>
+                <div class="item">隱私政策</div>
+                <div class="item">聯絡我們</div>
+                <div class="item noborder">FAQ</div>
+            </div>
+            <div class="social">
+                <img src="../images/line.png" alt="Line">
+                <img src="../images/twitter.png" alt="twitter">
+                <img src="../images/facebook.png" alt="Facebook">
+            </div>
+            <div class="copyright">© 2018. All rights reserved.</div>
+        </div>
+        <div class="mobileView">
+            <div class="mobileViewUpper">
+                <div class="link">
+                    <div class="item">關於Stylish</div>
+                    <div class="item">服務條款</div>
+                    <div class="item">隱私政策</div>
+                    <div class="item">聯絡我們</div>
+                    <div class="item">FAQ</div>
+                </div>
+                <div class="social">
+                    <img src="../images/line.png" alt="Line">
+                    <img src="../images/twitter.png" alt="twitter">
+                    <img src="../images/facebook.png" alt="Facebook">
+                </div>
+            </div>    
+            <div class="copyright">© 2018. All rights r</div>
+        </div>
+    </footer>
+    
+</body>
+</html>

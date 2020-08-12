@@ -1,0 +1,256 @@
+*{
+    /* border: solid 1px black; */
+}
+main{
+    display: flex;
+    justify-content: center;
+}
+
+.displayBeforeAJAX{
+    position: absolute;
+    top: 135px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+
+}
+
+.productView{
+    max-width:800px;
+    margin: 40px 20px 20px 20px;
+}
+/* --------------------- */
+.upper{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 30px;
+}
+.left{
+    width:60%;
+    
+}
+.left img{
+    width: 100%;
+    height: auto;
+}
+.right{
+    width:36%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.top{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 22%;
+    /* background-color: rgb(224, 83, 83); */
+}
+
+.top h3{
+    font-size: 23px;
+    letter-spacing: 4px;
+    color: #5e5c5c;
+    font-weight: normal;
+}
+.top .number{
+    font-size: 18px;
+    letter-spacing: 2px;
+    padding: 5px 0px 10px 0px;
+    color: #bbbb;
+}
+.right .ptPrice{
+    padding-bottom: 6px;
+    font-size: 23px;
+    color: #4d4a4a;
+}
+
+.middle{
+    display: flex;
+    justify-content: space-between;
+    height: 26%;
+    /* background-color: rgb(243, 203, 70); */
+    padding: 30px 0px 10px 0px;
+    border-top: solid 1px #bbb;
+}
+.middleLeft{
+    width:20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.middleLeft p{
+    border-right: solid 1px #bbb;
+}
+.middleRight{
+    width:70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.product_color{
+    border: solid 1px rgb(231, 229, 229);
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: .3s;
+}
+.product_color:hover{
+    box-shadow: rgb(156, 156, 156) 0px 0px 1px 2px;
+}
+
+.product_size{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    background-color:rgb(172, 171, 171) ;
+    margin-right:5px;
+    color: #ffffff;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: .5s;
+}
+.product_size:hover{
+    
+    box-shadow: rgb(156, 156, 156) 0px 0px 1px 2px;
+}
+.product_count{
+    display:inline-flex;
+    border: solid 1px #979797;
+    line-height: 30px;
+}
+.count{
+    width:100%;
+    text-align: center;
+}
+.op{
+    width: 30px;
+    text-align: center;
+}
+
+.cartBtn{
+    background-color:black ;
+    color: #ffffff;
+    height:45px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: .5s;
+}
+.cartBtn:hover{
+    box-shadow: rgb(156, 156, 156) 0px 0px 5px 2px;
+}
+
+.bottom{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 33%;
+    /* background-color: rgb(91, 221, 97); */
+}
+.detailTop{
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+.detail p{
+    margin-bottom: 20px;   
+}
+.detail .word{
+    display: inline-block;
+    width:15%;
+}
+.detail .line{
+    display: inline-block;
+    width:90%;
+    height:0.8rem;
+    border-bottom: solid 1px #bbb;
+}
+.dstory:hover{
+    text-shadow: 1px 1px 4px #bbb;
+}
+.detailPic{
+    width:50%;
+    margin: 20px 0px;
+    transition: .5s;
+    box-shadow: 3px 3px 5px #bbb ;
+
+}
+
+/* 點擊顏色產生邊框 */
+.outLine{
+    outline: rgb(170, 169, 169) solid 1px;
+    outline-offset: 2px;
+}
+.productSizeClick{
+    background-color:rgb(43, 42, 42) ;
+}
+.op{
+    cursor: pointer;
+    transition: 1s;
+}
+.op:hover{
+    background-color: #c2c0c0;
+}
+
+
+/* -------------RWD------------- */
+@media(min-width:700px){
+    .detailPic:hover{
+        width:65%;
+        box-shadow: 4px 4px 6px rgb(104, 104, 104) ;
+    }
+}
+@media(max-width:700px){
+    .upper{
+        display: block;
+    }
+    .left{
+        width:100%;
+    }
+    .right{
+        width: 100%;
+    }
+    .detailPic{
+        width: 100%;
+    }
+    .middle{
+        height: 150px;
+        padding: 20px 10px 10px 10px;
+    }
+    .middleLeft{
+        width:15%;
+    }
+    .top h3{
+        font-size: 20px;
+    }
+    .right .ptPrice{
+        font-size: 20px;
+    }
+    .cartBtn{
+        margin-top: 10px;
+    }
+    .bottom{
+        margin-top: 10px;
+    }
+    .productView{
+        margin: 0px;
+    }
+    .upper{
+        padding-bottom: 10px;
+    }
+    .right{
+        padding:20px;
+    }
+    .detail{
+        padding: 0px 20px 0px 20px;
+    }
+    .detail .line{
+        width:80%;
+    }
+}

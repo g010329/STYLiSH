@@ -1,0 +1,125 @@
+@media (min-width:1200px){
+    .product{
+        width: 30%;
+    }
+    .products{
+        display:flex;
+        max-width:1200px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media(min-width:500px) and (max-width:1200px){
+    .product{
+        width: 30%;
+    }
+    .products{
+        display:flex;
+        max-width:1200px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+/* 1024以上 */
+@media(min-width:1024px){
+    .mobile>.item{
+        display:none;
+    }
+    header .feature{
+        width: 330px;
+        position: absolute;
+        right: 2rem;
+        justify-content: flex-between;
+    }
+    .mobileSearch{
+        display:none;
+    }
+    .mobileView{
+        display: none;
+    }
+}
+/* 1024以下 */
+@media(max-width:1024px){
+    .webNav{
+        display: none;
+    }
+    
+    /* .feature>a,.member{
+        visibility: hidden;
+    } */
+    header{
+        height:3rem;
+    }
+    .mobileSearch{
+        position: absolute;
+        top:3px;
+        right:5px;
+    }
+    .keyvisual{
+        height: 11.25rem;
+    }
+    .btn_logo01 {
+        height: 1.5rem;
+    }
+    .feature{
+        display:none;
+    }
+    .search{
+        border: 0;
+    }
+    
+    .feature{
+        position: absolute;
+        right:-80px;
+    }
+    header{
+        display: flex;
+        justify-content: center;
+    }
+    .footerView{
+        display:none;
+    }
+    .content{
+        font-size: 10px;
+        letter-spacing: 2px;
+        left: 18%;
+    }
+
+
+    /* --------- */
+}
+
+@media(min-width:890px) and (max-width:1024px){
+    .mobileView .item{
+        width: 200px;
+    }
+}
+@media(min-width:500px){
+    .mobileFixed{
+        display: none;
+    }
+}
+@media(max-width:500px){
+    .product{
+        width: 40%;
+    }
+    .mobileView .item{
+        width: 110px;
+    }
+    .mobileView{
+        margin-bottom: 80px;
+    }
+    .search{
+        width: 5rem;
+    }
+    main .color{
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+    }
+
+}
+
